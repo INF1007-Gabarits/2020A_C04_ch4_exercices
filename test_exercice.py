@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import math
 import os
 import sys
 import unittest
@@ -10,104 +9,76 @@ import exercice
 
 
 class TestExercice(unittest.TestCase):
-    def test_square_root(self):
-        values = [12, 200, 20]
+    def test_pair(self):
+        values = ["hey jad!", "abcdefg", "0"]
 
-        output = [exercice.square_root(v) for v in values]
-        answer = [math.sqrt(v) for v in values]
-
-        self.assertListEqual(
-            output,
-            answer,
-            'Mauvais calcul de la racine carré'
-        )
-
-    def test_square(self):
-        values = [12, 200, 20]
-
-        output = [exercice.square(v) for v in values]
-        answer = [v**2 for v in values]
+        output = [exercice.is_even_len(v) for v in values]
+        answer = [len(v) % 2 == 0 for v in values]
 
         self.assertListEqual(
             output,
             answer,
-            'Mauvais calcul du carré'
+            'Mauvaise identification de la parité de la longueur de la chaine'
         )
 
-    def test_average(self):
+    def test_remove_third_char(self):
+        values = ["hey jad!", "abcdefg", "01234"]
+
+        output = [exercice.remove_third_char(v) for v in values]
+        answer = [v[0:2] + v[3:] for v in values]
+
+        self.assertListEqual(
+            output,
+            answer,
+            'Retrait du mauvais caractère'
+        )
+
+    def test_replace_char(self):
         values = [
-            (2, 4, 6),
-            (-1, 0, 1),
-            (-1, -2, -4)
+            ("hey jad!", "j", "y"),
+            ("aaaaab", "a", "b"),
+            ("01234", "0", "a")
         ]
 
-        output = [exercice.average(*v) for v in values]
-        answer = [sum(v) / len(v) for v in values]
+        output = [exercice.replace_char(v[0], v[1], v[2]) for v in values]
+        answer = [v[0].replace(v[1], v[2]) for v in values]
 
         self.assertListEqual(
             output,
             answer,
-            'Mauvais calcul de la moyenne'
+            'Erreur dans le remplacement de caractère'
         )
     
-    def test_to_radians(self):
+    def test_get_number_of_char(self):
         values = [
-            (-5, 2, 0),
-            (10.0, 4, 59),
-            (360, 1, 3),
-            (400, 55, 6)
+            ("aaaa123", "a"),
+            ("athse wqc re", "s"),
+            ("aaaa", "x")
         ]
 
-        output = [exercice.to_radians(*v) for v in values]
-        answer = [math.radians(v[0] + (v[1] + (v[2] / 60)) / 60) for v in values]
+        output = [exercice.get_number_of_char(v[0], v[1]) for v in values]
+        answer = [v[0].count(v[1]) for v in values]
 
         self.assertListEqual(
             output,
             answer,
-            'Mauvais calcul de degres -> radians'
+            "Mauvais calcul du nombre d'occurence du caractère"
         )
 
-    def test_to_degrees(self):
-        def __to_degrees(rad: float) -> tuple:
-            degrees = math.degrees(rad)
-            minutes = (degrees % 1) * 60
-            seconds = (minutes % 1) * 60
+    def test_get_number_of_words(self):
+        values = [
+            ("Comment allez vous aller chez vous", "vous"),
+            ("Bonjour hello ok salut merci", "helo"),
+            ("Bonjour hello ok salut merci", "hello")
+        ]
 
-            return degrees - minutes, minutes - seconds, seconds
-            
-        values = [2, -4, 5, 4.09]
-
-        output = [exercice.to_degrees(v) for v in values]
-        answer = [__to_degrees(v) for v in values]
+        output = [exercice.get_number_of_words(v[0], v[1]) for v in values]
+        answer = [v[0].count(v[1]) for v in values]
 
         self.assertListEqual(
             output,
             answer,
-            'Mauvais calcul de radians -> degres'
-        )
-
-    def test_to_celsius(self):
-        values = [0, -25, 451]
-
-        output = [exercice.to_celsius(v) for v in values]
-        answer = [(v - 32) / 1.8 for v in values]
-
-        self.assertListEqual(
-            output,
-            answer,
-            'Mauvais calcul de farenheit -> celsius'
-        )
-
-    def test_to_farenheit(self):
-        values = [0, -25, 451]
-
-        output = [exercice.to_farenheit(v) for v in values]
-        answer = [v * 1.8 + 32 for v in values]
-
-        self.assertListEqual(
-            output,
-            answer,
-            'Mauvais calcul de celsius -> farenheit'
+            "Mauvais calcul du nombre d'occurence du mot"
         )
 
 

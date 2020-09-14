@@ -1,6 +1,6 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod-redirect-0.herokuapp.com/)
 
-# Exercices en vrac (chapitre 3)
+# Exercices en vrac (chapitre 4)
 
 Avant de commencer. Consulter les instructions à suivre dans [instructions.md](instructions.md)
 
@@ -8,45 +8,29 @@ Avant de commencer. Consulter les instructions à suivre dans [instructions.md](
 
 Compléter les quelques exercices suivants en modifiant le code de [exercice.py](exercice.py):
 
-1. Calculer la racine carré et le carré d'un nombre
-2. Calculer la moyenne de 3 nombres donnés
-3. Convertir en radians un angle fourni au départ en degrés, minutes, secondes
-4. Convertir en degrés, minutes, secondes un angle fourni au départ en radians
-5. Convertir en degrés Celsius une température exprimée au départ en degrés Fahrenheit et vice-versa
+1. Vérifier si le nombre de caractères d’une chaîne de caractères est pair
+2. Supprimer le 3ème caractère d’une chaîne de caractères
+3. Remplacer un caractère d’une chaîne de caractère par un autre
+4. Renvoyer le nombre d’occurrences d’un caractère dans une chaîne de caractères, sans utiliser de fonctions avancées
+5. Rechercher le nombre de mots dans une phrase donnée
 
 ### À compléter
 Vous devez compléter les fonctions suivantes du fichier [exercice.py](exercice.py).
 
 ```python
-def square_root(a: float) -> float:
-    return 0.0
+def is_even_len(string: str) -> bool:
+    pass
 
-def square(a: float) -> float:
-    return 0.0
+def remove_third_char(string: str) -> str:
+    pass
 
-def average(a: float, b: float, c: float) -> float:
-    return 0.0
+def replace_char(string: str, old_char: str, new_char: str) -> str:
+    pass
 
-def to_radians(angle_degs: float, angle_mins: float, angle_secs: float) -> float:
-    return 0.0
+def get_number_of_char(string: str, char: str) -> int:
+    pass
 
-def to_degrees(angle_rads: float) -> tuple:
-    return 0.0, 0.0, 0.0
-
-def to_celsius(temperature: float) -> float:
-    return 0.0
-
-def to_farenheit(temperature: float) -> float:
-    return 0.0
+def get_number_of_words(sentence: str, word: str) -> int:
+    pass
 ```
 
-## Connaissances utiles
-
-### Opérateurs arithmétiques de base
-https://www.w3schools.com/python/python_operators.asp
-
-### Documentation du module math
-https://docs.python.org/3/library/math.html
-
-### Formule de conversion Celsius vers Farenheit
-Tf = Tc x 1.8 + 32
